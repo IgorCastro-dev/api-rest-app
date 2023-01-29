@@ -1,0 +1,25 @@
+server:
+  port: 8081
+  
+spring:
+  application:
+    name: aplicativo
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/aplicativo?useTimezone=true&serverTimezone=UTC
+    username: igor
+    password: Mudar@1234
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        
+  flyway:
+    url: jdbc:mysql://localhost:3306/
+    schemas: aplicativo
+    user: igor
+    password: Mudar@1234
