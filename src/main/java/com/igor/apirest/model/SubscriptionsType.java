@@ -1,6 +1,7 @@
 package com.igor.apirest.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,18 +13,25 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "user_type")
-public class UserType implements Serializable{
-	
-	/**
+@Table(name = "subscriptions_type")
+public class SubscriptionsType implements Serializable{/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "user_type_id")
+	@Column(name = "subscriptions_type_id")
 	private int id;
-	private String name;
-	private String description;
 	
+	private String name;
+	
+	@Column(name="access_months")
+	private int accessMonths;
+	
+	private BigDecimal price;
+	
+	@Column(name = "product_key")
+	private String productKey;
+
 }
