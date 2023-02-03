@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.igor.apirest.dto.SubscriptionsTypeDto;
 import com.igor.apirest.exceptions.NotFoundException;
+import com.igor.apirest.mapper.SubscriptionsTypeMapper;
 import com.igor.apirest.model.SubscriptionsType;
 import com.igor.apirest.repository.SubscriptionsTypeRepository;
 import com.igor.apirest.service.SubscriptionsTypeService;
@@ -30,26 +31,16 @@ public class SubscriptionsTypeServiceImplements implements SubscriptionsTypeServ
 
 	@Override
 	public SubscriptionsType create(SubscriptionsTypeDto subscriptionsTypeDto) {
-		SubscriptionsType subscriptionsType = SubscriptionsType.builder()
-				.name(subscriptionsTypeDto.getName())
-				.accessMonths(subscriptionsTypeDto.getAccessMonths())
-				.price(subscriptionsTypeDto.getPrice())
-				.productKey(subscriptionsTypeDto.getProductKey())
-				.build();
-		return subscriptionsTypeRepository.save(subscriptionsType) ;
+		return subscriptionsTypeRepository
+		   .save(SubscriptionsTypeMapper.fromDtoToEntity(subscriptionsTypeDto));
 	}
 
 	@Override
 	public SubscriptionsType update(Integer id, SubscriptionsTypeDto subscriptionsTypeDto) {
 		getSubscriptionsType(id);
-		SubscriptionsType subscriptionsType = SubscriptionsType.builder()
-				.id(id)
-				.name(subscriptionsTypeDto.getName())
-				.accessMonths(subscriptionsTypeDto.getAccessMonths())
-				.price(subscriptionsTypeDto.getPrice())
-				.productKey(subscriptionsTypeDto.getProductKey())
-				.build();
-		return subscriptionsTypeRepository.save(subscriptionsType) ;
+		subscriptionsTypeDto.setId(id);
+		return subscriptionsTypeRepository
+	        .save(SubscriptionsTypeMapper.fromDtoToEntity(subscriptionsTypeDto));
 	}
 
 	@Override

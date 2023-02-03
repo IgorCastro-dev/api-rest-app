@@ -9,6 +9,8 @@ import lombok.Data;
 @Data
 @Builder
 public class SubscriptionsTypeDto {
+	private Integer id;
+	
 	private String name;
 	
 	private Integer accessMonths;
