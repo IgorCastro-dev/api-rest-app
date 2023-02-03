@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.igor.apirest.model.UserType;
 
 @Repository
-public interface UserTypeRepository extends JpaRepository<UserType, Integer>{
+public interface UsersTypeRepository extends JpaRepository<UserType, Integer>{
 
 }

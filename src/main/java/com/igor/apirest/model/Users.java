@@ -10,23 +10,25 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Data
+@Builder
 @Table(name = "users")
 public class Users implements Serializable{/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
 	private String email;
 	private String phone;
 	private String cpf;
-	private LocalDate dt_subscription = LocalDate.now();
+	private LocalDate dt_subscription;
 	private LocalDate dt_expiration;
 	
 	@ManyToOne
