@@ -18,6 +18,8 @@ import com.igor.apirest.dto.SubscriptionsTypeDto;
 import com.igor.apirest.model.SubscriptionsType;
 import com.igor.apirest.service.SubscriptionsTypeService;
 
+import jakarta.validation.Valid;
+
 
 @RestController
 @RequestMapping("api/subscriptionstype")
@@ -38,7 +40,7 @@ public class SubscriptionsTypeController {
 	
 	
 	@PostMapping
-	private ResponseEntity<SubscriptionsType> create(@RequestBody SubscriptionsTypeDto subscriptionsTypeDto){
+	private ResponseEntity<SubscriptionsType> create(@Valid @RequestBody SubscriptionsTypeDto subscriptionsTypeDto){
 		SubscriptionsType subscriptionsType = subscriptionsTypeService.create(subscriptionsTypeDto);
 		return ResponseEntity.status(HttpStatus.CREATED).body(subscriptionsType);
 	}
