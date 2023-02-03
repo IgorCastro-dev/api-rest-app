@@ -27,21 +27,21 @@ public class UserPaymentInfo implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_payment_info_id")
-	private int id;
+	private Integer id;
 	
 	@Column(name = "card_number")
 	private String cardNumber;
 	
 	@Column(name = "card_expiration_month")
-	private int cardExpirationMonth;
+	private Integer cardExpirationMonth;
 	
 	@Column(name = "card_expiration_year")
-	private int cardExpirationYear;
+	private Integer cardExpirationYear;
 	
 	@Column(name = "cardSecurityCode")
 	private String card_security_code;
 	private BigDecimal price;
-	private int instalments;
+	private Integer instalments;
 	
 	@Column(name = "dt_payment")
 	private LocalDate dtPayment;

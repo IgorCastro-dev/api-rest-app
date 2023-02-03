@@ -9,10 +9,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "subscriptions_type")
 public class SubscriptionsType implements Serializable{/**
 	 * 
@@ -20,14 +26,14 @@ public class SubscriptionsType implements Serializable{/**
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "subscriptions_type_id")
-	private int id;
+	private Integer id;
 	
 	private String name;
 	
 	@Column(name="access_months")
-	private int accessMonths;
+	private Integer accessMonths;
 	
 	private BigDecimal price;
 	

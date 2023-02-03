@@ -22,7 +22,7 @@ public class UserType implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_type_id")
-	private int id;
+	private Integer id;
 	private String name;
 	private String description;
 	
